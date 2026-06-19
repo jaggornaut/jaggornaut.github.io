@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LRPT Satellite Reception — Alex Polesel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="top-row reveal d1">
+      <a class="back" href="../index.html">← Back</a>
+    </div>
+
+    <div class="detail-head reveal d2">
+      <h1>LRPT Satellite Reception</h1>
+      <p class="detail-meta">Side project · SIGINT · 137 MHz</p>
+    </div>
+
+    <figure class="detail-figure reveal d3">
+      <a href="../images/lrpt.png" target="_blank" rel="noopener">
+        <img src="../images/lrpt.png" alt="LRPT capture from a Meteor-M satellite">
+      </a>
+      <figcaption>One of my own captures. (Mediterranean Sea) </figcaption>
+    </figure>
+
+    <div class="prose reveal d4">
+      <p>
+        LRPT (Low Rate Picture Transmission) is the image downlink the Russian
+        Meteor-M weather satellites broadcast around 137 MHz.
+      </p>
+
+      <h2>How it works</h2>
+      <ul>
+        <li><strong>Antenna:</strong> a hand-made V-dipole cut for the 137 MHz
+          band, about 54 cm per side.</li>
+        <li><strong>SDR:</strong> an RTL-SDR records the pass.</li>
+        <li><strong>Decoding:</strong> the QPSK signal is demodulated and the LRPT
+          frames are turned into the image.</li>
+      </ul>
+
+      <figure class="detail-figure">
+        <img src="../images/rtl-sdr-v-dipole.jpg" alt="RTL-SDR and V-dipole antenna setup">
+        <figcaption>The RTL-SDR with my bad looking home-made V-dipole antenna.</figcaption>
+      </figure>
+
+      <p>
+        I decode the captures with
+        <a href="https://github.com/SatDump/SatDump" target="_blank" rel="noopener">SatDump</a>.
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

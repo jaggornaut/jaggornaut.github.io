@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSignal — Alex Polesel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="top-row reveal d1">
+      <a class="back" href="../index.html">← Back</a>
+    </div>
+
+    <div class="detail-head reveal d2">
+      <h1>JSignal</h1>
+      <p class="detail-meta">SIGINT toolkit · In development</p>
+    </div>
+
+    <figure class="detail-figure reveal d3">
+      <img src="../images/jsignal_history.gif" alt="JSignal live aircraft tracking">
+      <figcaption>ADS-B tracking in the JSignal console.</figcaption>
+    </figure>
+
+    <div class="prose reveal d4">
+      <p>
+        JSignal is a SIGINT toolkit for receiving, decoding and storing radio
+        signals. It currently supports ADS-B, and the architecture is built to
+        extend to other signals, with AIS (ship tracking) planned next.
+      </p>
+
+      <h2>Architecture</h2>
+      <ul>
+        <li><strong>Decoder (C++):</strong> reads 1090 MHz ADS-B from an SDR and
+          publishes per-aircraft messages to an MQTT broker.</li>
+        <li><strong>Backend (Spring Boot):</strong> subscribes to the MQTT topics,
+          persists records to PostgreSQL and serves the history over a REST API.</li>
+        <li><strong>Frontend (Flutter):</strong> consumes the live MQTT feed and
+          the backend's recorded history over REST.</li>
+      </ul>
+
+      <h2>Status</h2>
+      <p>
+        In active development.
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
