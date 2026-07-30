@@ -1,10 +1,9 @@
-:root{                  /* DARK — default: grigio neutro caldo, appena sporco di rosso */
+:root{                  
   --bg: #2d2b2a;
   --ink: #e1d8d3;
   --muted: #9e928b;
   --line: #423d3b;
-  --accent: #c5715f;    /* rosso mattone spento, leggibile senza essere acceso */
-  --avatar-bg: #393634;
+  --accent: #c5715f;    
   --avatar-fig: #80726b;
   --serif: "Newsreader", Georgia, serif;
   --mono: "Spline Sans Mono", monospace;
@@ -31,10 +30,8 @@ body{
   padding:14vh 28px 18vh;
 }
 
-/* hero */
 header{ margin-bottom:12vh; }
 
-/* back-link row on project pages */
 .top-row{
   display:flex;
   justify-content:space-between;
@@ -42,7 +39,6 @@ header{ margin-bottom:12vh; }
   margin-bottom:3rem;
 }
 
-/* avatar + tricolore */
 .avatar-block{ flex-shrink:0; }
 
 .hero-row{
@@ -73,9 +69,9 @@ header{ margin-bottom:12vh; }
   overflow:hidden;
   background:linear-gradient(
     to right,
-    #4f8a5f 0 33.33%,    /* verde smorzato */
-    #efe7e3 33.33% 66.66%,/* bianco caldo */
-    var(--accent) 66.66% 100%  /* rosso spento */
+    #4f8a5f 0 33.33%,    
+    #efe7e3 33.33% 66.66%,
+    var(--accent) 66.66% 100%  
   );
   opacity:.9;
 }
@@ -96,7 +92,6 @@ h1 .hl{ color:var(--accent); }
 }
 .intro em{ color:var(--ink); font-style:italic; }
 
-/* sections */
 section{ margin-bottom:10vh; }
 
 h2{
@@ -157,7 +152,6 @@ section p a:hover{ border-bottom-color:var(--accent); }
   font-size:1.05rem;
 }
 
-/* projects with image */
 .project{ display:flex; gap:1.4rem; align-items:flex-start; }
 .project-thumb{
   flex-shrink:0;
@@ -180,7 +174,6 @@ section p a:hover{ border-bottom-color:var(--accent); }
   .tricolore{ width:120px; }
 }
 
-/* contact */
 .links{ list-style:none; }
 .links li{
   border-bottom:1px solid var(--line);
@@ -199,7 +192,6 @@ section p a:hover{ border-bottom-color:var(--accent); }
 .links .arrow{ font-family:var(--mono); font-size:13px; color:var(--muted); }
 .links a:hover .arrow{ color:var(--accent); }
 
-/* entrance animation */
 .reveal{
   opacity:0;
   transform:translateY(14px);
@@ -214,7 +206,6 @@ section p a:hover{ border-bottom-color:var(--accent); }
   .reveal{ animation:none; opacity:1; transform:none; }
 }
 
-/* ===== project detail pages ===== */
 .back{
   display:inline-block;
   margin-bottom:3rem;
