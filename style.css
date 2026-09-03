@@ -140,6 +140,13 @@ section p a:hover{ border-bottom-color:var(--accent); }
   letter-spacing:-0.01em;
 }
 .work-item:hover .work-title{ color:var(--accent); }
+.work-logo{
+  width:26px;
+  height:26px;
+  margin-right:.6rem;
+  vertical-align:-5px;
+  border-radius:5px;
+}
 .work-year{
   font-family:var(--mono);
   font-size:12px;
@@ -247,7 +254,21 @@ section p a:hover{ border-bottom-color:var(--accent); }
   color:var(--muted);
 }
 
+/* key/value spec list */
+.spec{ margin:1.2rem 0; }
+.spec dt{
+  font-family:var(--mono);
+  font-size:13px;
+  letter-spacing:0.06em;
+  color:var(--accent);
+  padding-top:.9rem;
+  border-top:1px solid var(--line);
+}
+.spec dd{ color:var(--muted); font-size:1.05rem; padding-bottom:.9rem; }
+.spec dd:last-child{ border-bottom:1px solid var(--line); }
+
 .prose h2{ margin-top:3rem; }
+.prose + section{ margin-top:6vh; }
 .prose p{ color:var(--ink); }
 .prose ul{ margin:1.2rem 0; padding-left:1.2rem; color:var(--ink); }
 .prose li{ margin:.4rem 0; }

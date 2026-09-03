@@ -22,32 +22,60 @@
     </div>
 
     <figure class="detail-figure reveal d3">
-      <img src="../images/jsignal_history.gif" alt="JSignal live aircraft tracking">
-      <figcaption>ADS-B tracking in the JSignal console.</figcaption>
+      <img src="../images/jsignal-adsb.gif" alt="JSignal replaying recorded ADS-B traffic over Venice">
+      <figcaption>A departure out of Venice Marco Polo, replayed from the recorded history.</figcaption>
     </figure>
 
     <div class="prose reveal d4">
       <p>
-        JSignal is a SIGINT toolkit for receiving, decoding and storing radio
-        signals. It currently supports ADS-B, and the architecture is built to
-        extend to other signals, with AIS (ship tracking) planned next.
+        JSignal is a self-hosted toolkit to capture radio signals with an SDR, analyze them
+        and keep their history.
       </p>
+
+      <h2>Protocols</h2>
+      <dl class="spec">
+        <dt>ADS-B</dt>
+        <dd>aircraft on 1090 MHz, tracked by ICAO24</dd>
+        <dt>AIS</dt>
+        <dd>vessels on the marine VHF band, tracked by MMSI</dd>
+      </dl>
+      <figure class="detail-figure">
+        <img src="../images/jsignal-ais.gif" alt="JSignal replaying recorded AIS traffic in the Venice lagoon">
+        <figcaption>The same player on AIS: a tanker leaving Marghera down the Malamocco channel.</figcaption>
+      </figure>
 
       <h2>Architecture</h2>
       <ul>
-        <li><strong>Decoder (C++):</strong> reads 1090 MHz ADS-B from an SDR and
-          publishes per-aircraft messages to an MQTT broker.</li>
-        <li><strong>Backend (Spring Boot):</strong> subscribes to the MQTT topics,
-          persists records to PostgreSQL and serves the history over a REST API.</li>
-        <li><strong>Frontend (Flutter):</strong> consumes the live MQTT feed and
-          the backend's recorded history over REST.</li>
+        <li><strong><a href="https://github.com/jaggornaut/adsb-module" target="_blank" rel="noopener">adsb-module</a></strong>
+          (C++) — decodes Mode S at 1090 MHz, publishes JSON to MQTT.</li>
+        <li><strong><a href="https://github.com/jaggornaut/ais-module" target="_blank" rel="noopener">ais-module</a></strong>
+          (C++) — decodes AIS on the marine VHF band, publishes JSON to MQTT.</li>
+        <li><strong><a href="https://github.com/jaggornaut/jsignal-be" target="_blank" rel="noopener">jsignal-be</a></strong>
+          (Spring Boot) — records the MQTT traffic to PostgreSQL, serves the history over REST.</li>
+        <li><strong><a href="https://github.com/jaggornaut/jsignal-fe" target="_blank" rel="noopener">jsignal-fe</a></strong>
+          (Flutter) — desktop console: live map, contact table, history playback.</li>
       </ul>
+
+      <figure class="detail-figure">
+        <img src="../images/jsignal-contacts.png" alt="The JSignal contacts table, listing tracked vessels">
+        <figcaption>The contacts table during an AIS replay.</figcaption>
+      </figure>
 
       <h2>Status</h2>
       <p>
-        In active development.
+        In active development. All captures on this page are my own, from the Venice lagoon.
+      </p>
+      <p>
+        Planned: RF drone detection with direction finding, and
+        <a href="https://www.civtak.org/" target="_blank" rel="noopener">ATAK-CIV</a> support.
       </p>
     </div>
+
+    <section class="reveal d5">
+      <ul class="links">
+        <li><a href="https://github.com/jaggornaut/jsignal" target="_blank" rel="noopener"><span>Source</span><span class="arrow">jaggornaut/jsignal →</span></a></li>
+      </ul>
+    </section>
 
   </div>
 </body>
